@@ -1,0 +1,33 @@
+/* Image principale de background en responsive */    
+
+body {
+    background-image: url('../img/patterns/country-quilt.png');
+    /* background-size: contain; */
+    height:100%;
+    color: #fff !important;
+}
+
+.filter {
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    background-image: linear-gradient(to bottom right, #5c258d, #4389a2);
+    opacity: .8;
+    z-index: -1;
+    transform: translate(0,0);
+}
+
+@media screen and (max-width: 1280px) {
+    body {
+        background-size: 150vw 100vh;
+        background-position-x:50%;
+    }
+}
+@media screen and (max-width: 900px) {
+    body {
+        background-size: 300vw 100vh;
+        background-position-x:0%;
+        overflow-y: visible;
+    }
+}
+/* END BG */

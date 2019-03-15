@@ -1,0 +1,26 @@
+.fa-chevron-down, .fa-chevron-up {
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    cursor: pointer
+}
+.fa-chevron-down {
+    animation-name: uptodown;
+}
+.fa-chevron-up {
+    animation-name: downtoup;
+}
+
+@keyframes uptodown {
+    0%{transform:translateY(0)}
+    25%{transform:translateY(10px)}
+    50%{transform:translateY(0)}
+    75%{transform:translateY(15px)}
+    100%{transform:translateY(0)}
+}
+@keyframes downtoup {
+    0%{transform:translateY(0)}
+    25%{transform:translateY(-10px)}
+    50%{transform:translateY(0)}
+    75%{transform:translateY(-15px)}
+    100%{transform:translateY(0)}
+}
