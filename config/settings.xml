@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<settings>
+
+    <!-- C'EST MOI! X) -->
+    <info>
+        <author>Mohamed AAROUS</author>
+        <email>arosmed3@gmail.com</email>
+    </info>
+
+    <!-- CONNEXION INFO -->
+    <host>localhost</host>
+    <db>portfolio</db>
+    <user>root</user>
+    <pwd></pwd>
+
+    <!-- TARGET TABLE -->
+    <tables>
+        <content>content</content>
+        <competences>competences</competences>
+        <projets>projets</projets>
+        <parcours>parcours</parcours>
+        <contact>social</contact>
+    </tables>
+    
+
+    <!-- ADMIN TABLE -->
+    <admin>toor</admin>
+    
+</settings>

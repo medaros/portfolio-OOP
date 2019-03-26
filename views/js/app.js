@@ -12,3 +12,31 @@ $(document).on("click mousemove","body",function(e){
 
     $("body *").not('.filter').css("transform","translate3d("+newposX+"px,"+newposY+"px,0px)");
 });
+
+// QUERY SELECT
+
+function querySelect(element){
+    return document.querySelector(element);
+}
+function querySelectAll(element){
+    return document.querySelectorAll(element);
+}
+
+// END QUERY SELECT
+
+// MENU SWITCHER
+
+// function menuSwitchOff(){
+//     this.classList.toggle("h4");
+// }
+
+// function menuSwitchPrn(){
+//     return this.classList.toggle("h1");
+// }
+
+// END MENU SWITCHER
+
+for(let ele = 0; ele < querySelectAll(".menu p").length; ele++) {
+    querySelectAll(".menu p")[ele].classList.toggle("h4");
+}
+
