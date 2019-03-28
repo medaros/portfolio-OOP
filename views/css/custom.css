@@ -26,11 +26,28 @@
 }
 
 .c {
+    display: flex;    
+    margin: 20px auto;
+    width: 1200px;
+}
+
+.c-left {
     display: flex;
     flex-wrap: wrap;
-    width: 1200px;
-    margin: auto;
+    width: calc(80% - 10px);
+    margin-right: 10px;
     justify-content: center;
+    border-radius: 3px;
+    box-shadow: 0 0 2px #ccc;
+    border: 1px solid #fff;
+}
+
+.c-right {
+    border-radius: 3px;
+    box-shadow: 0 0 2px #ccc;
+    border: 1px solid #fff;
+    padding: 20px;
+    height: 115px;
 }
 
 .mycard {
@@ -86,14 +103,23 @@
     border: 0;
     padding: 3px 0;
     border-radius: 2px;
-    box-shadow: 0 0 3px #555;
+    cursor: pointer;
+    text-shadow: none !important;
+    font-size: 16px;
+    font-weight: normal;border: 1px solid #eee;
+    /* box-shadow: 0 0 3px #555; */
 }
 .mycard input[type="submit"]:first-of-type {
-    background: rgb(255, 255, 111) !important;
-    color: #555 !important;
+    background: #1A1 !important;
 }
 .mycard input[type="submit"]:last-of-type {
     background: #f11 !important;
+}
+.mycard input[type="submit"]:first-of-type:hover {
+    background: #5e5 !important;
+}
+.mycard input[type="submit"]:last-of-type:hover {
+    background: #F55 !important;
 }
 
 .mycard-img input[type='file'] {
@@ -105,4 +131,31 @@
 ::placeholder, input{
     font-family: 'Oswald', sans-serif !important;
     font-weight: normal;    
+}
+
+.nav-right li a{
+    color: #fff;
+    padding: 5px;
+    display: block;
+    border-radius: 2px;
+    margin: 10px 0;
+}
+
+.nav-right li:hover a{
+    transition: .1s;
+}
+
+.nav-right li:first-of-type a{
+    background-color: #18f;
+
+}
+.nav-right li:first-of-type:hover a{
+    background-color: #1af;
+}
+.nav-right li:last-of-type a{
+    background-color: #F11;
+
+}
+.nav-right li:last-of-type:hover a{
+    background-color: #F55;
 }

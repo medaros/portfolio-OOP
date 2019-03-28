@@ -312,7 +312,8 @@ nav a:hover {
 }
 
 .projet {
-    height: 250px;
+    max-height: 200px;
+    min-height: 100px;
     overflow: hidden;
     margin: 0;
     position: relative;

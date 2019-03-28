@@ -15,6 +15,7 @@
 </div>
 
 <div class="content">
+<?php if(isset($page)) : ?>
     <h3 class="h3-admin"><?=$page?></h3>
     <!-- <?php
         /*echo "<table class='t'>";
@@ -50,20 +51,24 @@
     ?> -->
 
 <div class="c">
+
+    <div class="c-left">
+    <h3 style="width:100%;padding: 20px;">Liste de données stockée dans la base de données</h3>
      <?php 
 
         foreach($data as $d) {
 
-            echo "<div class='mycard'><form method='post' action=''>";
+            echo "<div class='mycard'><form method='post' enctype=\"multipart/form-data\">";
             foreach($d as $k => $v) {
                 if(strpos($v,".png") || strpos($v, ".jpg")) {
-                    echo "<div class='mycard-img' style='background-image:url(\"$v\");background-size:cover'><input type='file'></div>";
+                    echo "<div class='mycard-img' style='background-image:url(\"$v\");background-size:cover;background-position: center 0'><input type='file' name='img'></div>";
                 }
                 elseif($k != "id") {
                     echo "<div class='mycard-info'><label>$k</label><input type='text' name='$k' class='input-label' placeholder='" . $v . "'></div>";
                 }
                 elseif($k == 'id') {
                     echo "<input type='hidden' name='id' value='$v'>";
+                    echo "<input type='hidden' name='page' value='$page'>";
                 }
             }
             echo "<div class='mycard-inputs'><input name='edit' type='submit'><input name='dlt' type='submit' value='Supprimer'></div>";
@@ -71,6 +76,14 @@
         }
 
     ?>
+    </div>
+    <div class="c-right">
+        <ul class="nav-right">
+            <li><a href="?page=<?=$page?>&action=add"><i class="fas fa-plus"></i>&nbsp;&nbsp;Ajouter un nouveau element</a></li>
+            <li><a href="?page=<?=$page?>&action=dlt"><i class="fas fa-minus"></i>&nbsp;&nbsp;Supprimer tout</a></li>
+        </ul>
+    </div>
 </div>
+<?php endif ?>
    
 </div>

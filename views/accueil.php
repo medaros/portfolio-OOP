@@ -53,7 +53,7 @@
         <div class="pro">
             <?php for ($i = 0; $i < count($projets); $i++) : ?>          
                 <div class="projet">
-                    <img class="projet-img" src="<?= $projets[$i]["shot"] ?>">
+                    <img class="projet-img" style="background-position: center 0;" src="<?= $projets[$i]["shot"] ?>">
                     <p><?= $projets[$i]["titre"] ?></p>
                 </div>
             <?php endfor ?> 

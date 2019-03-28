@@ -21,7 +21,7 @@ class Controller {
             $this->actionAdmin();
         }
         // page == connexion => charger la page de connexion
-        elseif(isset($_GET['page']) && $_GET['page']  == "connexion" && !isset($_SESSION['admin'])) {
+        elseif(isset($_GET['action']) && $_GET['action']  == "connexion" && !isset($_SESSION['admin'])) {
             $this->loginAdmin();
         } 
         else {
@@ -49,9 +49,24 @@ class Controller {
         // ACTIONS DANS LA PAGE ADMIN
         extract($_POST);
 
+        // Mettre a jour les informations
         if($_POST && isset($_POST['edit'])) {
             $this->update();
         }
+        // Supprimer une carte
+        if($_POST && isset($_POST['dlt'])) {
+            $this->delete();
+        }
+
+        // ajouter une nouvelle carte
+        if(isset($_GET['action']) && $_GET['action'] == "add") {
+            $this->new();
+        }
+        // supprimer toutes les cartes
+        if(isset($_GET['action']) && $_GET['action'] == "dlt") {
+            $this->deleteAll();
+        }
+
         if(isset($_GET['action']) && $_GET['action'] == "deconnexion") {
             // deconnexion
             session_destroy();
@@ -64,7 +79,7 @@ class Controller {
                 "data" => $this->em->select($_GET['page']),
                 "page" => $_GET['page']
             ));
-        } elseif (isset($_GET['page']) && !in_array($_GET['page'], (array)$this->table)){
+        } elseif (!isset($_GET['page']) || !in_array($_GET['page'], (array)$this->table)){
             $this->r("admin/dashboard.php", "base.php", array(
                 "data" => $this->em->select("competences"),
                 "page" => "competences"
@@ -84,9 +99,27 @@ class Controller {
             'reseaux' => $this->em->select2($this->table->contact)
         ));
     }
-
+    public function new() {
+        // appeler la function qui va creer une nouvelle carte
+        $page = $_GET['page'];
+        $this->em->new($page);
+        // unset($_GET);
+        header("location: ?page=" . $page);
+    }
     public function update() {
-        $this->em->update($_POST);
+        // appeler les functions qui vont faire la mise a jour
+        $this->em->update($_POST, $_GET['page']);
+        $this->saveImg($_FILES);
+    }
+    public function saveImg($data) {
+        // si le chemin de la photo est pas vide a.k.a photo selected ! :
+        if(isset($data['img']['name'])) $this->em->saveImg($data, $_GET['page'], $_POST['id']);
+    }
+    public function delete() {
+        $this->em->delete($_POST["id"], $_POST['page']);
+    }
+    public function deleteAll() {
+        $this->em->delete("", $_GET['page']);
     }
 
     public function r($child, $parent, $params = array()){
