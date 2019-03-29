@@ -21,8 +21,8 @@ class Controller {
             $this->actionAdmin();
         }
         // page == connexion => charger la page de connexion
-        elseif(isset($_GET['action']) && $_GET['action']  == "connexion" && !isset($_SESSION['admin'])) {
-            $this->loginAdmin();
+        elseif(isset($_GET['action'])) {
+            if($_GET['action'] == "connexion" && !isset($_SESSION['admin'])) $this->loginAdmin();
         } 
         else {
             // sinon charger la page d'accueil
@@ -93,6 +93,7 @@ class Controller {
     public function index(){
         // function qui permet de charger la page d'accueil avec ses elements
         $this->r("accueil.php", "base.php", array(
+            "cv" => $this->em->select("profil"),
             'competences' => $this->em->select($this->table->competences),
             'parcours' => $this->em->select($this->table->parcours),
             'projets' => $this->em->select($this->table->projets),

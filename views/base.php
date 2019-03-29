@@ -38,6 +38,33 @@
 <?= $content ?>
 
 <footer>
+        <div class="divider-top"></div>
+        <!-- <a href="">LOGO</a> -->
+
+        <div class="flex">
+            <ul>
+                <p>Les liens:</p>
+                <a href="/"><i class="fa fa-home"></i></a> -
+                <a href="#competences"><i></i> Competences</a> -
+                <a href="#projets"><i></i> Projets</a> -
+                <a href="#parcours"><i></i> Parcours</a> -
+                <a href="#contact"><i></i> Contact</a> - 
+                <a href="?action=cv"><i></i> Télécharger mon CV !</a>
+            </ul>
+            <ul>
+                <p> Siteweb from scratch en :</p>
+                <a><i></i> HTML</a> -
+                <a><i></i> CSS</a> -
+                <a><i></i> JS / JQUERY</a> -
+                <a><i></i> PHP</a> -
+                <a><i></i> MYSQL</a>
+            </ul>
+        </div>
+
+        <div class="blase">
+            <p> Copyright <?= date("Y") ?> <strong>Mohamed AAROUS</strong>. Tous droits reservés.</p>
+        </div>
+        
 </footer>
 </body>
 

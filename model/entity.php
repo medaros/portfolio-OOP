@@ -99,7 +99,7 @@ class Entity {
             }
             
         }
-        var_dump($values);
+        // var_dump($values);
         $sql = "INSERT INTO $data (" . implode(",", $fields) . ") VALUES ('" . implode("','", $values) . "')";
         // var_dump("INSERT INTO $data (\"" . implode("\",\"", $fields) . "\") VALUES (\"" . implode("\",\"", $values) . "\")");
         // Lancer la requete insert qui va ajouter une ranger vide dans la db

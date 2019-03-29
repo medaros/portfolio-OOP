@@ -1,14 +1,14 @@
 <header>
     
     <nav>
-        <a href="">LOGO</a>
+        <a href="?action=home"><img src="views/img/logoa.png" width=42 style="border-radius:50%"></a>
         <ul>
-            <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="#"><i></i> Competences</a></li>
-            <li><a href=""><i></i> Parcours</a></li>
-            <li><a href=""><i></i> Projets</a></li>
-            <li><a href=""><i></i> Centre d'interet</a></li>
-            <li><a href=""><i></i> Télécharger mon CV !</a></li>
+            <li><a href="?action=home"><i class="fa fa-home"></i></a></li>
+            <li><a href="#competences"><i></i> Competences</a></li>
+            <li><a href="#projets"><i></i> Projets</a></li>
+            <li><a href="#parcours"><i></i> Parcours</a></li>
+            <li><a href="#contact"><i></i> Contact</a></li>
+            <li><a href="<?=$cv[0]["cv"]?>"><i></i> Télécharger mon CV !</a></li>
         </ul>
     </nav>
 
@@ -21,17 +21,19 @@
     </span>
     <h2 class="h2-tooltip">Mohamed AAROUS</h2>
     </h1>
+
+    <div class="divider"></div>
     
 </header>
 
 <div class="content">
-    <div class="competences">
+    <div class="competences" id="competences">
         <h2>COMPETENCES</h2>
         <p>Voici une liste des compétences que j'ai acquises au fil des années :</p>                    
         <div class="comp">
             <?php for ($i = 0; $i < 4; $i++) : ?>                    
             <div>
-                <i class="ico <?= $competences[$i]["logo"] ?>"></i>
+                <i class="ico <?= $competences[$i]["logo"] ?>" style="color:<?= $competences[$i]["color"] ?>"></i>
                 <p><?= $competences[$i]["titre"] ?></p>
             </div>
             <?php endfor ?>
@@ -40,15 +42,15 @@
         <div class="comp">
             <?php for ($i = 4; $i < count($competences); $i++) : ?>          
                 <div>
-                    <i class="ico <?= $competences[$i]["logo"] ?>"></i>
+                    <i class="ico <?= $competences[$i]["logo"] ?>" style="color:<?= $competences[$i]["color"] ?>"></i>
                     <p><?= $competences[$i]["titre"] ?></p>
                 </div>
             <?php endfor ?>
         </div>
     </div>
 
-    <div class="projets">
-        <h2>Projets</h2>
+    <div class="projets" id="projets">
+        <h2>PROJETS</h2>
 
         <div class="pro">
             <?php for ($i = 0; $i < count($projets); $i++) : ?>          
@@ -60,8 +62,9 @@
         </div>
     </div>
 
-    <div class="parcours">
-        <h2>Parcours</h2>
+    <div class="parcours" id="parcours">
+    <div class="divider-top"></div>
+        <h2>PARCOURS</h2>
         <div class="par">
 
             <?php for ($i = 0; $i < count($parcours); $i++) : ?>
@@ -76,19 +79,19 @@
                 </div>
             </div>
             <?php endfor ?>
-            
         </div>
+        <div class="divider-center"></div>
         
     </div>
 
-    <div class="contact">
-        <h2>Contact</h2>
+    <div class="contact" id="contact">
+        <h2>CONTACT</h2>
         <div class="form-container">
 
             <form action="" method="post">
                 <div class="doubleInput">
-                    <input name="nom" type="text" placeholder="Votre Nom">
-                    <input name="prenom" type="text" placeholder="Votre Prénom">
+                    <input name="nom" type="text" placeholder="Votre Nom *">
+                    <input name="prenom" type="text" placeholder="Votre Prénom *">
                 </div>
                 <input name="email" type="email" name="email" id="" placeholder="Votre Email *">
 
